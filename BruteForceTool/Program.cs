@@ -1,43 +1,37 @@
 ﻿using System;
-
-//string passwd = "01";
-//string[] range = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-//bool hack = true;
-
-
-string password = "221";  // Przykładowe hasło
-string[] range = { "0", "1", "2" };  // Zakres prób
+string password = "2b1";  // Przykładowe hasło
+string[] range = { "0", "1", "2", "a", "b", "c" };  // Zakres znaków
 string a = "";  // Zmienna przechowująca zgadywane hasło
 bool found = false;  // Flaga, która będzie wskazywać, że hasło zostało znalezione
 
 // Sprawdzanie wszystkich kombinacji
 for (int i = 0; i < range.Length; i++)
 {
-    a = range[i];
+    a = range[i]; // Sprawdzamy czy hasło to pojedynczy znak
     if (a == password)
     {
         Console.WriteLine("Password is: " + a);
         found = true;
-        break;  // Przerywamy główną pętlę
+        break;
     }
     for (int j = 0; j < range.Length; j++)
     {
-        a = range[i] + range[j];
+        a = range[i] + range[j]; // Sprawdzamy czy hasło zawiera 2 znaki
         if (a == password)
         {
             Console.WriteLine("Password is: " + a);
             found = true;
-            break;  // Przerywamy drugą pętlę
+            break;
         }
         for (int k = 0; k < range.Length; k++)
         {
-            a = range[i] + range[j] + range[k];
+            a = range[i] + range[j] + range[k]; // Sprawdzamy czy hasło zawiera 3 znaki
             Console.WriteLine(a);
             if (a == password)
             {
                 Console.WriteLine("Password is: " + a);
                 found = true;
-                break;  // Przerywamy trzecią pętlę
+                break;
             }
         }
         if (found) break;  // Przerywamy pętlę po znalezieniu hasła
